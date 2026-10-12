@@ -1,0 +1,14 @@
+{
+  "name": "wildminute-ai",
+  "version": "1.1.0",
+  "private": false,
+  "description": "A local-first outdoor adventure planner powered by open-weight AI via Ollama.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18.18" },
+  "license": "MIT"
+}

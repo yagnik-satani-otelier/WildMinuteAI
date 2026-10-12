@@ -1,0 +1,17 @@
+{
+  "name": "WildMinute: Outdoor Micro-Adventures",
+  "short_name": "WildMinute",
+  "description": "Plan tiny outdoor adventures, keep an offline checklist, save field notes and create an Adventure Journal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f2e9",
+  "theme_color": "#f5f2e9",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

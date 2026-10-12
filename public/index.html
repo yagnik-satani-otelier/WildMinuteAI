@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="A tiny outdoor adventure, planned privately by an open-weight AI model running on your own machine.">
+  <title>WildMinute | A little more outside</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="WildMinute home"><span class="brand-mark">w</span><span>WildMinute<span class="brand-dot">.</span></span></a>
+    <div class="privacy-pill"><span class="status-dot" id="statusDot"></span><span id="modelStatus">Checking local AI</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="sun-icon">✳</span> YOUR POCKET-SIZED NUDGE TO GO OUTSIDE</p>
+        <h1>A little less<br><em>scrolling.</em><br>A little more sky.</h1>
+        <p class="hero-text">Tell us the time you have and the mood you're in. Get one tiny, real-world mission. Then put the phone away and go live it.</p>
+        <div class="proof-row"><span><span class="proof-icon">◉</span> Runs on your machine</span><span><span class="proof-icon">↗</span> No GPS, no account</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a sun rising over green rolling hills" role="img">
+        <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
+        <div class="art-label"><span class="art-star">✳</span><span>the world is<br>still out there</span></div>
+        <div class="art-grass grass-one"></div><div class="art-grass grass-two"></div><div class="art-grass grass-three"></div>
+      </div>
+    </section>
+
+    <section class="planner" aria-labelledby="planner-title">
+      <div class="section-heading"><div><p class="eyebrow">THE PLAN</p><h2 id="planner-title">What have you got?</h2></div><span class="step-count">01 <span>/</span> 02</span></div>
+      <form id="plannerForm">
+        <fieldset class="field-group"><legend>Time you can spare</legend><div class="time-options">
+          <label class="choice time-choice"><input type="radio" name="minutes" value="5"><span>5 <small>min</small></span></label>
+          <label class="choice time-choice"><input type="radio" name="minutes" value="10" checked><span>10 <small>min</small></span></label>
+          <label class="choice time-choice"><input type="radio" name="minutes" value="15"><span>15 <small>min</small></span></label>
+          <label class="choice time-choice"><input type="radio" name="minutes" value="20"><span>20 <small>min</small></span></label>
+          <label class="choice time-choice"><input type="radio" name="minutes" value="30"><span>30 <small>min</small></span></label>
+        </div></fieldset>
+
+        <div class="form-grid">
+          <fieldset class="field-group"><legend>Pick a mood</legend><div class="stack-options">
+            <label class="choice"><input type="radio" name="mood" value="calm"><span class="choice-emoji">☁</span><span>Calm my brain</span></label>
+            <label class="choice"><input type="radio" name="mood" value="curious" checked><span class="choice-emoji">✳</span><span>Get curious</span></label>
+            <label class="choice"><input type="radio" name="mood" value="energised"><span class="choice-emoji">↗</span><span>Move a little</span></label>
+            <label class="choice"><input type="radio" name="mood" value="connected"><span class="choice-emoji">♡</span><span>Feel connected</span></label>
+          </div></fieldset>
+          <fieldset class="field-group"><legend>Where will you wander?</legend><div class="stack-options">
+            <label class="choice"><input type="radio" name="place" value="neighbourhood" checked><span class="choice-emoji">⌂</span><span>My neighbourhood</span></label>
+            <label class="choice"><input type="radio" name="place" value="park"><span class="choice-emoji">♧</span><span>A park</span></label>
+            <label class="choice"><input type="radio" name="place" value="balcony"><span class="choice-emoji">☼</span><span>Balcony or doorstep</span></label>
+            <label class="choice"><input type="radio" name="place" value="trail"><span class="choice-emoji">⌁</span><span>A nature trail</span></label>
+            <label class="choice"><input type="radio" name="place" value="garden"><span class="choice-emoji">❀</span><span>A garden</span></label>
+          </div></fieldset>
+        </div>
+
+        <div class="bottom-fields expanded-fields">
+          <div class="field-group constraints-group"><label for="location">Your area or starting point <span>OPTIONAL</span></label><input id="location" name="location" maxlength="120" placeholder="e.g. my neighbourhood, city or park" autocomplete="off"><p class="field-help">Type it yourself. WildMinute never requests GPS.</p></div>
+          <fieldset class="field-group"><legend>What sounds good?</legend><div class="select-wrap"><select name="activity" id="activity"><option value="nature-walk">A nature walk</option><option value="walking">Easy walking</option><option value="hiking">Hiking / trail time</option><option value="birdwatching">Birdwatching</option><option value="photowalk">A photo walk</option><option value="mindful">A mindful pause</option></select><span aria-hidden="true">⌄</span></div></fieldset>
+          <fieldset class="field-group"><legend>Who's coming?</legend><div class="select-wrap"><select name="company" id="company"><option value="solo">Just me</option><option value="friend">A friend</option><option value="family">Family</option><option value="dog">My dog</option></select><span aria-hidden="true">⌄</span></div></fieldset>
+          <div class="field-group constraints-group"><label for="constraints">Anything to keep in mind? <span>OPTIONAL</span></label><input id="constraints" name="constraints" maxlength="240" placeholder="e.g. no stairs, shade, mobility needs…" autocomplete="off"></div>
+        </div>
+        <button class="primary-button" id="generateButton" type="submit"><span>Find my outside moment</span><span class="button-arrow">↗</span></button>
+        <p class="form-note"><span>✳</span> No location access. No weather guesses. Just a small plan, made for you.</p>
+      </form>
+    </section>
+
+    <section id="resultSection" class="result-section" hidden aria-live="polite">
+      <div class="result-topline"><p class="eyebrow">YOUR FIELD NOTE</p><span class="source-pill" id="sourcePill">LOCAL AI</span></div>
+      <div id="resultCard" class="result-card"></div>
+      <div class="fieldwork-grid">
+        <section class="feature-panel" aria-labelledby="routeHeading">
+          <div class="feature-panel-heading"><div><p class="eyebrow">A GENTLE PATH</p><h3 id="routeHeading">Your walk outline</h3></div><span class="feature-icon" aria-hidden="true">⌁</span></div>
+          <p id="routeSummary" class="feature-intro">A simple, flexible walk plan will appear here.</p>
+          <ol id="routeSegments" class="route-list"></ol>
+          <p id="routeDisclaimer" class="quiet-note">Suggested structure, not turn-by-turn navigation. Check local conditions and choose a familiar public route.</p>
+          <a id="mapSearchLink" class="text-link" href="https://www.google.com/maps" target="_blank" rel="noreferrer" hidden>Explore paths in Maps ↗</a>
+          <p id="mapPrivacyNote" class="quiet-note" hidden>The optional Maps search shares the area you typed with Google.</p>
+        </section>
+        <section class="feature-panel look-panel" aria-labelledby="lookHeading">
+          <div class="feature-panel-heading"><div><p class="eyebrow">NOTICE THE LITTLE THINGS</p><h3 id="lookHeading">Things to look for</h3></div><span class="feature-icon" aria-hidden="true">✳</span></div>
+          <p class="feature-intro">A pocket-sized spotting list. Nothing here has to be found.</p>
+          <ul id="lookForList" class="spotting-list"></ul>
+        </section>
+      </div>
+      <section class="feature-panel checklist-panel" aria-labelledby="checklistHeading">
+        <div class="feature-panel-heading"><div><p class="eyebrow">READY WHEN YOU ARE</p><h3 id="checklistHeading">Offline adventure checklist</h3></div><span class="offline-pill"><span class="status-dot ready"></span> Works offline</span></div>
+        <p class="feature-intro">Tick things off before you head out. Your checklist is saved on this device.</p>
+        <div id="checklistProgress" class="checklist-progress-label">0 of 6 ready</div><div class="progress-track"><div id="checklistProgressBar" class="progress-fill"></div></div>
+        <div id="checklistItems" class="checklist-items"></div>
+        <div class="checklist-actions"><button type="button" id="printChecklistButton" class="quiet-button">Print checklist ↗</button><button type="button" id="resetChecklistButton" class="quiet-button">Reset ticks</button></div>
+      </section>
+      <div class="mission-actions"><button type="button" id="startButton" class="primary-button"><span>Start my mission</span><span class="button-arrow">↗</span></button><button type="button" id="anotherButton" class="quiet-button">Try another ↻</button></div>
+      <div id="timerPanel" class="timer-panel" hidden><div><p class="eyebrow">SCREEN DOWN, WORLD UP</p><p class="timer-copy" id="timerCopy">Your mission is waiting outside.</p></div><div class="timer-display" id="timerDisplay">10:00</div><div class="timer-controls"><button type="button" id="pauseButton" class="quiet-button">Pause timer</button><button type="button" id="finishButton" class="primary-button small-button">I'm back ✓</button></div></div>
+      <div id="completionPanel" class="completion-panel" hidden><span class="completion-spark">✳</span><p class="eyebrow">YOU DID THE THING</p><h3>That counts.</h3><p id="reflectionText"></p><p class="completion-subtext">Bring back one small detail. That's plenty.</p></div>
+      <section id="fieldNotesPanel" class="feature-panel field-notes-panel" hidden aria-labelledby="notesHeading">
+        <div class="feature-panel-heading"><div><p class="eyebrow">FIELD NOTES</p><h3 id="notesHeading">What did you notice?</h3></div><span class="feature-icon" aria-hidden="true">✎</span></div>
+        <p class="feature-intro">Capture a thought, sound, colour, tiny discovery, or photo. Notes stay on this device.</p>
+        <form id="observationForm" class="observation-form">
+          <div class="observation-form-top"><label for="observationKind">Entry type<select id="observationKind" name="kind"><option value="observation">Observation</option><option value="note">Note / reflection</option><option value="moment">Favourite moment</option></select></label><label for="observationPhoto" class="photo-picker">＋ Add a photo<input id="observationPhoto" name="photo" type="file" accept="image/*" capture="environment"></label></div>
+          <textarea id="observationText" name="text" rows="3" maxlength="1200" placeholder="I noticed… (optional when adding a photo)"></textarea>
+          <div id="photoPreviewWrap" class="photo-preview-wrap" hidden><img id="photoPreview" alt="Selected photo preview"><button type="button" id="clearPhotoButton" class="quiet-button">Remove photo</button></div>
+          <div class="observation-actions"><p id="observationCount" class="quiet-note">Nothing recorded yet.</p><button class="primary-button small-button" type="submit">Save field note <span>＋</span></button></div>
+        </form>
+        <div id="observationsList" class="observations-list"></div>
+      </section>
+      <section id="journalCapturePanel" class="feature-panel journal-capture-panel" hidden aria-labelledby="journalHeading">
+        <div class="feature-panel-heading"><div><p class="eyebrow">THE WALK, REMEMBERED</p><h3 id="journalHeading">Make your Adventure Journal</h3></div><span class="feature-icon" aria-hidden="true">▤</span></div>
+        <p class="feature-intro">Turn the route, observations and photos into a little record of your time outside.</p>
+        <label class="journal-reflection-label" for="journalReflection">One last thought <span>OPTIONAL</span></label>
+        <textarea id="journalReflection" rows="2" maxlength="800" placeholder="What will you remember from this little adventure?"></textarea>
+        <button type="button" id="generateJournalButton" class="primary-button journal-generate-button"><span>Generate my Adventure Journal</span><span class="button-arrow">✳</span></button>
+        <p id="journalStatus" class="quiet-note">If local AI is unavailable, WildMinute can still make a simple journal offline.</p>
+      </section>
+      <article id="journalResultPanel" class="journal-result-panel" hidden aria-labelledby="journalResultTitle">
+        <div class="journal-result-top"><p class="eyebrow">A LITTLE MEMORY TO KEEP</p><span id="journalSource" class="source-pill fallback">ON THIS DEVICE</span></div>
+        <h3 id="journalResultTitle" class="journal-title">My Adventure Journal</h3>
+        <p id="journalMeta" class="journal-meta"></p>
+        <div id="journalPhotos" class="journal-photos"></div>
+        <p id="journalSummary" class="journal-summary"></p>
+        <blockquote id="journalHighlight" class="journal-highlight" hidden></blockquote>
+        <div id="journalObservations" class="journal-observations"></div>
+        <div class="journal-actions"><button type="button" id="downloadJournalButton" class="primary-button small-button">Save journal as text ↓</button><button type="button" id="shareJournalButton" class="quiet-button">Share / copy ↗</button><button type="button" id="resetButton" class="quiet-button">Plan another adventure</button></div>
+      </article>
+    </section>
+
+    <section id="savedJournalsSection" class="saved-journals-section" aria-labelledby="savedJournalsHeading" hidden>
+      <div class="feature-panel-heading"><div><p class="eyebrow">YOUR LITTLE ARCHIVE</p><h2 id="savedJournalsHeading">Saved adventures</h2></div><span class="feature-icon" aria-hidden="true">▤</span></div>
+      <div id="savedJournalsList" class="saved-journals-list"></div>
+    </section>
+
+    <footer class="footer"><div class="footer-mark">✳</div><p><strong>Made for the world beyond the window.</strong><br>Local AI and your fieldbook stay on this device when run locally. Optional Maps search shares your typed area with Google.</p><a href="https://ollama.com/library/gemma3" target="_blank" rel="noreferrer">Meet the model ↗</a></footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
